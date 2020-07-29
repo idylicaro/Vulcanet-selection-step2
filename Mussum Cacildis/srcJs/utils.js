@@ -6,26 +6,13 @@ const convertCaseLine = (str) => {
     return aux
 }
 
-const permute = (permutation) => {
-    var length = permutation.length,
-        result = [permutation.slice()],
-        c = new Array(length).fill(0),
-        i = 1, k, p;
-
-    while (i < length) {
-        if (c[i] < i) {
-            k = i % 2 && c[i]; // i % 2 != 0 , so k = c[i]
-            p = permutation[i];
-            permutation[i] = permutation[k];
-            permutation[k] = p;
-            ++c[i];
-            i = 1;
-            result.push(permutation.slice());
-        } else {
-            c[i] = 0;
-            ++i;
-        }
-    }
+const permute = (nCans) => {
+    let result = new Array()
+    for (let x = 0; x < nCans; x++)
+        for (let j = 0; j < nCans; j++)
+            for (let g = 0; g < nCans; g++)
+                if ((x !== j) && (x !== g) && (j !== g))
+                    result.push([x, j, g])     
     return result;
 }
 
