@@ -32,8 +32,7 @@ const permute = (permutation) => {
 const verifyValidPermut = (cans, permuts) => {
     for (let x = 0; x < permuts.length; x++) {
         let i = permuts[x][0], j = permuts[x][1], k = permuts[x][2];
-
-        if ((i < j < k) && (cans[i] < cans[j] && cans[j] > cans[k])) {
+        if ((i < j && j < k) && (cans[i] < cans[j] && cans[j] > cans[k])) {
             console.log('YES')
             console.log(i + 1, j + 1, k + 1)
             return true;
